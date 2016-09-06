@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>运动框架示例</title>
+	<style>
+		html,body,ul{
+			margin: 0;
+			padding: 0;
+		}
+		#list{
+			margin: 10px auto;
+			list-style: none;
+			width: 210px;
+			height: 140px;
+			outline: 1px solid #ccc;
+		}
+		#list li{
+			display: block;
+			float: left;
+			outline: 1px solid #ccc;
+			width: 60px;
+			height: 60px;
+			margin: 5px;
+			position: relative;
+			cursor: pointer;
+			overflow: hidden;
+		}
+		#list li i{
+			color: orange;
+			position: absolute;
+			top: 20px;
+			left: 25px;
+		}
+		#list li a{
+			display: inline-block;
+			font-size: 12px;
+			text-decoration: none;
+			position: absolute;
+			top: 40px;
+			left: 20px;
+			color: #000;
+		}
+		#list li:hover a{
+			color: orange;
+		}
+	</style>
+	<link rel="stylesheet" href="iconfont/iconfont.css">
+	<script src="js/move.js"></script>
+</head>
+<body>
+	<ul id="list">
+		<li><i class="iconfont">&#x345e;</i><a href="javascript:">电子</a></li>
+		<li><i class="iconfont">&#x345a;</i><a href="javascript:">母婴</a></li>
+		<li><i class="iconfont">&#x3458;</i><a href="javascript:">美食</a></li>
+		<li><i class="iconfont">&#x3460;</i><a href="javascript:">运动</a></li>
+		<li><i class="iconfont">&#x3461;</i><a href="javascript:">男装</a></li>
+		<li><i class="iconfont">&#x3465;</i><a href="javascript:">女装</a></li>
+	</ul>
+</body>
+<script>
+	window.onload = function() {
+		function $(id) {
+			return document.getElementById(id);
+		}
+
+		var list = $('list');
+		var oLi = list.getElementsByTagName('li');
+		for(var i=0 ; i<oLi.length ; i++) {
+			oLi[i].onmouseover = function() {
+				var oI = this.getElementsByTagName('i')[0];
+				//console.log(oI);
+				//在透明度为0的时候，想变到30，再回到原处，在视觉上，模拟了运动一圈的样子
+				 startMove(oI,{top:-20,opacity:0},function() {
+				 	startMove(oI,{top:30},function() {
+				 		startMove(oI,{top:20,opacity:100});
+				 	});
+				 });
+			}
+		}
+	}
+</script>
+</html>
