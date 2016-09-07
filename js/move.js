@@ -62,7 +62,7 @@ function startMove(obj,json,fn) {
 function getStyle(obj,attr) {
 	if(obj.currentStyle) { //取属性，兼容ie
 		return obj.currentStyle[attr];
-	} else { //火狐和chrome
+	} else {  //火狐和chrome
 		return getComputedStyle(obj,null)[attr];
 	}
 }
