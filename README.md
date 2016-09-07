@@ -5,3 +5,5 @@ move.js中是简单的运动框架，能够实现简单的宽高变化，透明�
 
 
 ![alt text](https://github.com/liiiku/jsAnimation/blob/master/img/info.png)
+
+另外，为了使icon在视觉上感觉是转了一圈回到原点的，用了透明度以及定位，模拟
